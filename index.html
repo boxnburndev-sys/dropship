@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NovaDrop Dropshipping Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Eye-catching dropshipping shop template ready for GitHub Pages">
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#ff6b6b;--muted:#94a3b8;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#071028 0%,#081022 50%,#071126 100%);color:#e6eef8;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    .container{max-width:1200px;margin:40px auto;padding:0 20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff9844);display:flex;align-items:center;justify-content:center;font-weight:800;color:#071126;font-size:18px;box-shadow:0 6px 20px rgba(255,107,107,0.12)}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
+    nav a:hover{color:#fff;background:rgba(255,255,255,0.03)}
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;margin-top:28px}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:36px;border-radius:20px;backdrop-filter:blur(6px);box-shadow:0 10px 40px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    h1{margin:0;font-size:44px;line-height:1.02}
+    p.lead{color:var(--muted);margin:12px 0 20px;font-size:16px}
+    .cta{display:flex;gap:12px}
+    .btn{background:linear-gradient(90deg,var(--accent),#ff9844);padding:12px 18px;border-radius:12px;color:#071126;font-weight:700;border:none;cursor:pointer;box-shadow:0 8px 30px rgba(255,107,107,0.12);transition:transform .18s ease}
+    .btn:active{transform:translateY(2px)}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#fff}
+    .feature-grid{display:flex;gap:12px;margin-top:20px}
+    .feature{background:var(--glass);padding:10px 14px;border-radius:10px;font-weight:600;color:#d7e7ff}
+    .hero-media{display:grid;place-items:center}
+    .mock{width:100%;max-width:420px;border-radius:18px;overflow:hidden;box-shadow:0 30px 80px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .gradient-strip{height:8px;background:linear-gradient(90deg,#ff6b6b,#ff9844);}
+    .searchbar{margin-top:22px;display:flex;gap:12px}
+    .searchbar input{flex:1;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff;font-weight:600}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:34px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:14px;padding:14px;border:1px solid rgba(255,255,255,0.03);transition:transform .18s ease,box-shadow .18s ease}
+    .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(2,6,23,0.6)}
+    .thumb{height:180px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .thumb img{max-width:100%;max-height:100%;object-fit:cover}
+    .pinfo{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+    .title{font-weight:700}
+    .price-row{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+    .price{font-weight:800}
+    .tag{background:rgba(255,255,255,0.04);padding:6px 8px;border-radius:8px;font-size:12px;color:var(--muted)}
+    .badge{padding:6px 8px;border-radius:8px;font-weight:700;font-size:12px}
+    .cart-btn{background:linear-gradient(90deg,#3b82f6,#06b6d4);border:none;padding:8px 10px;border-radius:10px;color:#fff;font-weight:700;cursor:pointer}
+    .sidebar-cart{position:fixed;right:20px;bottom:20px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:16px;padding:12px 14px;backdrop-filter:blur(6px);box-shadow:0 20px 60px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .cart-icon{display:flex;align-items:center;gap:8px}
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:24px}
+    .modal.active{display:flex}
+    .modal-card{width:100%;max-width:760px;background:linear-gradient(180deg,#061025,transparent);border-radius:16px;padding:18px;border:1px solid rgba(255,255,255,0.04)}
+    form.checkout{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    input,textarea,select{padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff}
+    .footer{margin-top:48px;padding:28px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);display:flex;justify-content:space-between;align-items:center}
+    @media(max-width:920px){.hero{grid-template-columns:1fr;}.mock{max-width:100%}.grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}}
+    @media(max-width:560px){header{flex-direction:column;align-items:flex-start}nav{order:3;width:100%;overflow:auto}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">ND</div>
+        <div>
+          <div style="font-weight:800;font-size:15px">NovaDrop</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Curated gadgets & lifestyle</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a id="view-cart" href="#" class="tag">Cart <span id="cart-count">0</span></a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Trending picks. Fast shipping. Big smiles.</h1>
+        <p class="lead">Hand-picked products that convert. Built for dropshippers who want a beautiful storefront without the fuss.</p>
+        <div class="cta">
+          <button class="btn" id="shop-now">Shop Now</button>
+          <button class="btn ghost" id="subscribe-show">Join Waitlist</button>
+        </div>
+        <div class="feature-grid">
+          <div class="feature">Worldwide Shipping</div>
+          <div class="feature">30-Day Returns</div>
+          <div class="feature">Premium Support</div>
+        </div>
+        <div class="searchbar">
+          <input id="search" placeholder="Search products, e.g. wireless charger" />
+          <button class="btn" id="search-btn">Search</button>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="mock">
+          <div style="padding:18px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <div style="font-weight:800">Featured</div>
+              <div class="tag">Limited</div>
+            </div>
+            <img src="https://images.unsplash.com/photo-1612831455540-3c465b163f5b?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=1" style="width:100%;border-radius:12px;object-fit:cover;display:block;height:260px" />
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+              <div style="font-weight:800">UltraFast Charger</div>
+              <div style="font-weight:800">$29</div>
+            </div>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <button class="btn">Buy Now</button>
+              <button class="btn ghost" id="quick-view">Quick View</button>
+            </div>
+          </div>
+          <div class="gradient-strip"></div>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <section id="products">
+        <div style="display:flex;justify-content:space-between;align-items:end;margin-top:28px">
+          <h2 style="margin:0">Popul Products</h2>
+          <div style="color:var(--muted)">Showing <span id="shown-count">8</span> items</div>
+        </div>
+        <div class="grid" id="product-grid"></div>
+      </section>
+
+      <section id="about" style="margin-top:40px">
+        <div class="hero-card">
+          <h3 style="margin-top:0">Waarom NovaDrop?</h3>
+          <p class="lead">Placeholder.</p>
+          <div style="display:flex;gap:12px;margin-top:12px">
+            <div style="flex:1;background:var(--card);padding:14px;border-radius:12px">Geselecteerde leveranciers</div>
+            <div style="flex:1;background:var(--card);padding:14px;border-radius:12px">Geautomatiseerde tracking</div>
+            <div style="flex:1;background:var(--card);padding:14px;border-radius:12px">Conversieklaar</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top:28px">
+        <div class="hero-card">
+          <h3 style="margin-top:0">Krijg vroege toegang en updates</h3>
+          <form id="lead-form" style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+            <input id="lead-name" placeholder="Full name" style="flex:1;min-width:180px" />
+            <input id="lead-email" placeholder="Email address" style="flex:1;min-width:220px" />
+            <button class="btn" type="button" id="lead-submit">Join</button>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div>
+          <div style="font-weight:800">NovaDrop</div>
+          <div style="color:var(--muted);margin-top:6px;font-size:13px">Ontworpen voor snelheid, geoptimaliseerd voor verkoop</div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center">
+          <div style="color:var(--muted);font-size:13px">© NovaDrop 2025</div>
+          <a href="#" class="tag">Privacy</a>
+          <a href="#" class="tag">Terms</a>
+        </div>
+      </footer>
+    </main>
+
+    <div class="sidebar-cart" id="mini-cart">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="cart-icon">🛒 <strong id="mini-count">0</strong></div>
+        <div style="font-weight:700">Winkelkar</div>
+        <div style="margin-left:8px"><button class="btn ghost" id="open-cart">Kijk</button></div>
+      </div>
+    </div>
+
+    <div class="modal" id="modal">
+      <div class="modal-card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="font-weight:800">snelle weergave</div>
+          <button class="btn ghost" id="close-modal">Sluiten</button>
+        </div>
+        <div style="display:flex;gap:14px;margin-top:12px">
+          <div style="flex:1">
+            <img id="modal-img" src="" style="width:100%;height:320px;object-fit:cover;border-radius:12px" />
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:8px">
+            <div id="modal-title" style="font-weight:800;font-size:20px"></div>
+            <div id="modal-price" style="font-weight:900;font-size:18px;color:var(--accent)"></div>
+            <div id="modal-desc" style="color:var(--muted);margin-top:8px"></div>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <button class="btn" id="modal-add">Toevoegen aan winkelkar</button>
+              <button class="btn ghost" id="modal-buy">Nu kopen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const PRODUCTS = [
+      {id:1,title:'Preview Product1',price:29,tag:'Best seller',img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToHEhkTw7tnGlR1taYOH87wXsUEWtd-FNJFw&s',desc:'Een preview product.'},
+      {id:2,title:'Preview Product2',price:29,tag:'Limited',img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToHEhkTw7tnGlR1taYOH87wXsUEWtd-FNJFw&s',desc:'Een preview product.'},
+      {id:3,title:'Preview Product3',price:29,tag:'Hot',img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToHEhkTw7tnGlR1taYOH87wXsUEWtd-FNJFw&s',desc:'Een preview product.'},
+      {id:4,title:'Preview Product4',price:29,tag:'Eco',img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToHEhkTw7tnGlR1taYOH87wXsUEWtd-FNJFw&s',desc:'Een preview product.'},
+      {id:5,title:'Preview Product5',price:29,tag:'Trending',img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToHEhkTw7tnGlR1taYOH87wXsUEWtd-FNJFw&s',desc:'Een preview product.'},
+      {id:6,title:'Preview Product6',price:29,tag:'Office',img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToHEhkTw7tnGlR1taYOH87wXsUEWtd-FNJFw&s',desc:'Een preview product.'},
+      {id:7,title:'Preview Product7',price:29,tag:'Daily',img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToHEhkTw7tnGlR1taYOH87wXsUEWtd-FNJFw&s',desc:'Een preview product.'},
+      {id:8,title:'Preview Product8',price:29,tag:'Style',img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToHEhkTw7tnGlR1taYOH87wXsUEWtd-FNJFw&s',desc:'Een preview product.'}
+    ];
+
+    const grid = document.getElementById('product-grid');
+    const shownCount = document.getElementById('shown-count');
+    let CART = JSON.parse(localStorage.getItem('nd_cart')||'{}');
+
+    function formatPrice(n){return '$'+String(n.toFixed(2))}
+
+    function renderProducts(list){grid.innerHTML='';list.forEach(p=>{
+      const el=document.createElement('div');el.className='card';
+      el.innerHTML=`<div class='thumb'><img src='${p.img}' alt='${p.title}'/></div><div class='pinfo'><div class='title'>${p.title}</div><div style='display:flex;justify-content:space-between;align-items:center'><div class='tag'>${p.tag}</div><div class='price'>${formatPrice(p.price)}</div></div><div style='display:flex;gap:8px;margin-top:10px'><button class='cart-btn' data-id='${p.id}'>Add</button><button class='btn ghost' data-quick='${p.id}'>View</button></div></div>`;
+      grid.appendChild(el);
+    });shownCount.textContent=list.length}
+
+    function addToCart(id){const p=PRODUCTS.find(x=>x.id===id);if(!p)return;CART[id]=CART[id]||{...p,qty:0};CART[id].qty++;updateCart();}
+
+    function updateCart(){localStorage.setItem('nd_cart',JSON.stringify(CART));const count=Object.values(CART).reduce((s,i)=>s+i.qty,0);document.getElementById('cart-count').textContent=count;document.getElementById('mini-count').textContent=count}
+
+    grid.addEventListener('click',e=>{
+      if(e.target.matches('.cart-btn')){const id=Number(e.target.dataset.id);addToCart(id);e.target.textContent='Added';setTimeout(()=>e.target.textContent='Add',800)}
+      if(e.target.matches('[data-quick]')){const id=Number(e.target.dataset.quick);openModal(id)}
+    });
+
+    function openModal(id){const p=PRODUCTS.find(x=>x.id===id);if(!p)return;document.getElementById('modal-img').src=p.img;document.getElementById('modal-title').textContent=p.title;document.getElementById('modal-price').textContent=formatPrice(p.price);document.getElementById('modal-desc').textContent=p.desc;document.getElementById('modal').classList.add('active');document.getElementById('modal-add').dataset.id=id}
+
+    document.getElementById('close-modal').addEventListener('click',()=>document.getElementById('modal').classList.remove('active'));
+    document.getElementById('modal-add').addEventListener('click',e=>{addToCart(Number(e.target.dataset.id));document.getElementById('modal').classList.remove('active')});
+    document.getElementById('modal-buy').addEventListener('click',()=>{alert('Redirecting to checkout...');});
+
+    document.getElementById('shop-now').addEventListener('click',()=>{location.hash='products';document.getElementById('search').focus();});
+    document.getElementById('search-btn').addEventListener('click',()=>{const q=document.getElementById('search').value.toLowerCase();renderProducts(PRODUCTS.filter(p=>p.title.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)))});
+
+    document.getElementById('subscribe-show').addEventListener('click',()=>{document.getElementById('lead-email').focus()});
+    document.getElementById('lead-submit').addEventListener('click',()=>{const n=document.getElementById('lead-name').value;const e=document.getElementById('lead-email').value;if(!e){alert('Please add email');return}alert('Thanks '+(n||'there')+'. You joined the list.');document.getElementById('lead-form').reset()});
+
+    document.getElementById('open-cart').addEventListener('click',()=>{renderCartDialog()});
+    document.getElementById('view-cart').addEventListener('click',e=>{e.preventDefault();renderCartDialog()});
+
+    function renderCartDialog(){const items=Object.values(CART);let total=0;const dlg=document.createElement('div');dlg.style.position='fixed';dlg.style.inset='0';dlg.style.display='flex';dlg.style.alignItems='center';dlg.style.justifyContent='center';dlg.style.padding='20px';dlg.style.background='linear-gradient(180deg,rgba(2,6,23,0.6),rgba(2,6,23,0.8))';dlg.innerHTML=`<div style='width:100%;max-width:760px;background:#071126;padding:18px;border-radius:12px'><div style='display:flex;justify-content:space-between;align-items:center'><div style='font-weight:800'>Your Cart</div><button id='close-dlg' style='background:transparent;color:#fff;border:0;font-weight:700;cursor:pointer'>Close</button></div><div id='cart-body' style='margin-top:12px'></div><div id='cart-foot' style='margin-top:12px;display:flex;justify-content:space-between;align-items:center'></div></div>`;
+      document.body.appendChild(dlg);
+      const body=document.getElementById('cart-body');if(items.length===0){body.innerHTML='<div style="color:var(--muted)">Your cart is empty</div>'}else{items.forEach(it=>{total+=it.price*it.qty;const row=document.createElement('div');row.style.display='flex';row.style.justifyContent='space-between';row.style.gap='12px';row.style.alignItems='center';row.style.padding='8px 0';row.innerHTML=`<div style='display:flex;gap:12px;align-items:center'><img src='${it.img}' style='height:56px;width:72px;object-fit:cover;border-radius:8px'/><div><div style='font-weight:700'>${it.title}</div><div style='color:var(--muted)'>${formatPrice(it.price)}</div></div></div><div style='display:flex;align-items:center;gap:8px'><button data-dec='${it.id}' style='padding:6px;border-radius:8px;border:0;background:rgba(255,255,255,0.03);color:#fff;cursor:pointer'>-</button><div>${it.qty}</div><button data-inc='${it.id}' style='padding:6px;border-radius:8px;border:0;background:rgba(255,255,255,0.03);color:#fff;cursor:pointer'>+</button><button data-rem='${it.id}' style='margin-left:8px;padding:6px;border-radius:8px;border:0;background:transparent;color:#ff6b6b;cursor:pointer'>Remove</button></div>`;body.appendChild(row)})}
+      const foot=document.getElementById('cart-foot');foot.innerHTML=`<div style='font-weight:800'>Total: ${formatPrice(total)}</div><div style='display:flex;gap:8px'><button id='checkout' class='btn'>Checkout</button><button id='close2' class='btn ghost'>Close</button></div>`;
+      dlg.querySelector('#close-dlg').addEventListener('click',()=>dlg.remove());dlg.querySelector('#close2').addEventListener('click',()=>dlg.remove());dlg.querySelector('#checkout').addEventListener('click',()=>{if(items.length===0){alert('Cart empty');return}checkoutProcess(items,total)});
+      body.addEventListener('click',e=>{if(e.target.dataset.inc){const id=Number(e.target.dataset.inc);CART[id].qty++;updateCart();renderCartDialog();dlg.remove()}if(e.target.dataset.dec){const id=Number(e.target.dataset.dec);CART[id].qty--;if(CART[id].qty<1)delete CART[id];updateCart();renderCartDialog();dlg.remove()}if(e.target.dataset.rem){const id=Number(e.target.dataset.rem);delete CART[id];updateCart();renderCartDialog();dlg.remove()}});
+    }
+
+    function checkoutProcess(items,total){const name=prompt('Name for order');const email=prompt('Email for order');if(!email){alert('Email required');return}alert('Order placed! Total: '+formatPrice(total));CART={};updateCart();}
+
+    document.addEventListener('DOMContentLoaded',()=>{renderProducts(PRODUCTS);updateCart();});
+  </script>
+</body>
+</html>
